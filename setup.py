@@ -1,13 +1,13 @@
 import os
 from setuptools import setup, find_packages
  
-import mongonaut
+import nosqladmin
  
 LONG_DESCRIPTION = open('README.rst').read()
  
 setup(
     name='django-nosqladmin',
-    version=mongonaut.__version__,
+    version=nosqladmin.__version__,
     description="An introspective interface for Django and Document Based NoSQL databases",
     long_description=LONG_DESCRIPTION,
     classifiers=[
@@ -24,7 +24,7 @@ setup(
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
     keywords='mongodb,django,nosql',
-    author=mongonaut.__author__,
+    author=nosqladmin.__author__,
     author_email='pydanny@gmail.com',
     url='http://github.com/pydanny/django-nosqladmin',
     license='MIT',

@@ -18,9 +18,7 @@ Fundamentals
     * Can add list fields which try to display
     * Define which collections are displayed.
     
-Sample mongoadmin.py file:
-
-.. sourcecode:: python
+Sample mongoadmin.py file::
 
     # mongoadmin.py
     class ProfileAdmin(MongoAdmin):
