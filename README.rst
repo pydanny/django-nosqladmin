@@ -21,9 +21,13 @@ Fundamentals
 Sample mongoadmin.py file::
 
     # mongoadmin.py
+    from nosqladmin.mongodb import MongoAdmin
+    
+    from django import forms # in theory can be from any widget library
+    
     class ProfileAdmin(MongoAdmin):
         
-        collection = 'Profile'
+        collection_name = 'db.Profile'
         search_fields = ['username']
         list_fields = ['username']
     
@@ -32,9 +36,16 @@ Sample mongoadmin.py file::
 
     class ArticleAdmin(MongoAdmin):
 
-        collection = 'Article'
+        collection_name = 'db.Article'
         search_fields = ['title',]
         list_fields = ['title','create_date']
+        form_template = {
+            'title':forms.CharField(),
+        
+        }
 
+Sample urls.py integration
             
-    admins = [ProfileAdmin(), ArticleAdmin()]
+    # list of tuples that have the module name and then the class. 
+    # Done this way to make importing possible
+    admins = [("mongoadmin", "ProfileAdmin"), ("mongoadmin", "ArticleAdmin")]
