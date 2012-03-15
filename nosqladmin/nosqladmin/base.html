@@ -1,0 +1,62 @@
+<html>
+<head>
+
+    <title>django-mongonaut</title>
+    <link rel="stylesheet" type="text/css" href="{{ MONGONAUT_TWITTER_BOOTSTRAP }}">
+    <script src="{{ MONGONAUT_JQUERY }}" type="text/javascript"></script>
+    <script src="{{ MONGONAUT_TWITTER_BOOTSTRAP_ALERT }}" type="text/javascript"></script>
+    
+</head>
+
+
+<body>
+<ul class="breadcrumb">
+    {% block breadcrumbs %}
+    {% endblock %}
+</ul>    
+<div class="container-fluid">
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success">
+                <a class="close">×</a>
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+{% block content %}{% endblock %}
+    <div class="row">
+        <div class="span12">
+            <footer>
+                <p>
+                    &copy; 2012 <a href="http://pydanny.blogspot.com">Daniel Greenfeld</a>
+                    - <a href="http://github.com/pydanny/django-mongonaut">Fork on Github!</a>
+                    - <a href="http://django-mongonaut.rtfd.org">Documentation</a>
+                </p>
+            </footer>
+        </div>        
+    </div>        
+</div>
+
+
+{% block extrajs %}
+{% endblock %}
+
+<script type="text/javascript">
+    $("#action_delete").click(function(){
+        $('.btn-group').hide();
+        $('#delete_warning').show();   
+    });        
+    $(".alert_close").click(function(){
+        $('.btn-group').show();
+        $('#delete_warning').hide();  
+    });
+    $("#action_delete_ok").click(function(){
+        var form_ = $('#delete_form');
+        form_.submit();
+    });
+</script>
+
+</body>
+</html>

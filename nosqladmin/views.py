@@ -1,2 +1,11 @@
+from django.views.generic import ListView
 
-class Index(object):
+from nosqladmin.mixins import NosqlAdminViewMixin
+
+class IndexView(MongonautViewMixin, ListView):
+
+    template_name = "nosqladmin/index.html"
+    queryset = []
+    
+    def get_queryset(self):
+        return self.get_nosqladmins()

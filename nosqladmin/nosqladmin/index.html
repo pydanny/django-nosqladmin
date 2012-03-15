@@ -1,0 +1,31 @@
+{% extends "nosqladmin/base.html" %}
+
+{% block breadcrumbs %}
+<li><a href="" class="active">NoSQL Admin</a></li>
+{% endblock %}
+
+{% block content %}
+
+<h1>Mongonaut</h1>
+
+<div class="row">
+    <div class="span12">
+        
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th colspan=3>Collection Name</th>
+                </tr>
+            </thead>
+            <tbody>        
+            {% for nosqladmin in object_list %}
+                <tr>
+                    <td><a href="">{{ nosqladmin.collection_name }}</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>        
+        </table>
+    </div>
+</div>    
+
+{% endblock %}
