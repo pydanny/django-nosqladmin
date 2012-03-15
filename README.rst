@@ -44,8 +44,8 @@ Sample mongoadmin.py file::
         
         }
 
-Sample urls.py integration
+Sample settings.py integration::
             
     # list of tuples that have the module name and then the class. 
     # Done this way to make importing possible
-    admins = [("mongoadmin", "ProfileAdmin"), ("mongoadmin", "ArticleAdmin")]
+    NOSQLADMINS = [("mongoadmin", "ProfileAdmin"), ("mongoadmin", "ArticleAdmin")]

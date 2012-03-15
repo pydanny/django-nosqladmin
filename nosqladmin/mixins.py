@@ -33,12 +33,12 @@ class NosqlAdminViewMixin(object):
                 # TODO - change this to bring in class, not a module
                 module = import_module(nosqladmin[0])
             except IndexError:
-                raise exceptions.NosqlAdminModuleNotFound
+                raise exceptions.NosqlAdminModuleNotFound(str(nosqladmin))
             
             try:
                 nosqladmins.append(module.__dict__[nosqladmin[1]])
             except KeyError:
-                raise exceptions.NosqlAdminClassNotFound
+                raise exceptions.NosqlAdminClassNotFound(str(nosqladmin))
         return nosqladmins
         
     
