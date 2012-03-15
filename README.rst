@@ -16,3 +16,27 @@ Fundamentals
     * Only show ObjectId by default
     * Can add search fields which attempt to search
     * Can add list fields which try to display
+    * Define which collections are displayed.
+    
+Sample mongoadmin.py file:
+
+.. sourcecode:: python
+
+    # mongoadmin.py
+    class ProfileAdmin(MongoAdmin):
+        
+        collection = 'Profile'
+        search_fields = ['username']
+        list_fields = ['username']
+    
+        def has_view_permission(self, request):
+            return True
+
+    class ArticleAdmin(MongoAdmin):
+
+        collection = 'Article'
+        search_fields = ['title',]
+        list_fields = ['title','create_date']
+
+            
+    admins = [ProfileAdmin(), ArticleAdmin()]
