@@ -2,7 +2,7 @@
 django-nosql-admin
 ===================
 
-Most NoSQL databases translate into Python as a list of dictionaries, right? So why do us developers try to staple document databases into Django's traditional style relational introspection and tools? It's like we're trying to add object impedance mismatch to something that avoids it in the first place.
+Many NoSQL databases, mostly the Document based ones, translate into Python as a list of dictionaries, right? So why do us developers try to staple document databases into Django's traditional style relational introspection and tools? It's like we're trying to add object impedance mismatch to something that avoids it in the first place.
 
 Taking lessons learned from django-mongonaut, django-nosql-admin is an introspection tool for NoSQL databases. Our original test case is MongoDB, but if this works we'll invite authorship of interfaces for other NoSQL databases.
 
