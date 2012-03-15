@@ -3,4 +3,4 @@ include LICENSE.txt
 include MANIFEST.in
 include README.rst
 recursive-include docs *
-recursive-include nosql_admin/templates/nosql_admin *
+recursive-include nosqladmin/templates/nosqladmin *

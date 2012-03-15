@@ -1,6 +1,6 @@
-===================
-django-nosql-admin
-===================
+=================
+django-nosqladmin
+=================
 
 Many NoSQL databases, mostly the Document based ones, translate into Python as a list of dictionaries, right? So why do us developers try to staple document databases into Django's traditional style relational introspection and tools? It's like we're trying to add object impedance mismatch to something that avoids it in the first place.
 
