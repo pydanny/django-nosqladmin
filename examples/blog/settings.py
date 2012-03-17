@@ -196,3 +196,8 @@ except:
     pass
 
 ########## END DJANGO_EXTENSIONS CONFIGURATION
+
+########## START NOSQLADMIN CONFIGURATION
+NOSQLADMINS = [('articles.models','User'),]
+
+########## END NOSQLADMIN CONFIGURATION
