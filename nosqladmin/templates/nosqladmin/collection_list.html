@@ -8,7 +8,7 @@
 
 {% block content %}
 
-<h1>{{ collection_name }} List</h1>
+<h1>List of {{ collection_name }}</h1>
 
 {% if search_field %}
     <form action="" method="get" class="form-search">
@@ -18,15 +18,21 @@
 {% endif %}
 {% if has_add_permission %}
     <p>
-        <a class="btn btn-primary" href="{% url document_detail_add_form app_label document_name %}">
+        <a class="btn btn-primary" href="{# {% url collection_add_form app_label document_name %} #}">
             <i class="icon-plus icon-white"></i> Add
         </a>
     </p>
 {% endif %}
-{% if request.user.is_superuser %}
+{% if request.user.is_superuser %} {# TODO change to permission controls#}
     <form action="" method="post">
-    {% csrf_token %}
-    {# buttons go here #}
+    {% csrf_token %}  
+    <div class="row">
+        <div class="span4">
+            <p>
+                <input type="submit" class="btn danger" value="delete" name="delete">
+            </p>
+        </div>    
+    </div>
 {% endif %}
     <table class="table table-bordered table-striped">
     <thead>
