@@ -2,7 +2,7 @@ from django.conf import settings
 from django.http import HttpResponseForbidden
 from django.utils.importlib import import_module
 
-from nosql import exceptions
+from nosqladmin import exceptions
 
 class NosqlAdminViewMixin(object):
 
@@ -18,7 +18,7 @@ class NosqlAdminViewMixin(object):
         )
 
     def get_context_data(self, **kwargs):
-        context = super(MongonautViewMixin, self).get_context_data(**kwargs)
+        context = super(NosqlAdminViewMixin, self).get_context_data(**kwargs)
         context['NOSQLADMIN_JQUERY'] = getattr(settings, "NOSQLADMIN_JQUERY", "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js")
         context['NOSQLADMIN_TWITTER_BOOTSTRAP'] = getattr(settings, "NOSQLADMIN_TWITTER_BOOTSTRAP", "http://twitter.github.com/bootstrap/assets/css/bootstrap.css")
         context['NOSQLADMIN_TWITTER_BOOTSTRAP_ALERT'] = getattr(settings, "NOSQLADMIN_TWITTER_BOOTSTRAP_ALERT", "http://twitter.github.com/bootstrap/assets/js/bootstrap-alert.js")

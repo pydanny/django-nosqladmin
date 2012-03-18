@@ -118,7 +118,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'articles',
-    'mongonaut',
+    'nosqladmin',
 )
 
 LOGGING = {
@@ -138,11 +138,6 @@ LOGGING = {
         },
     }
 }
-
-AUTHENTICATION_BACKENDS = (
-    'mongoengine.django.auth.MongoEngineBackend',
-)
-SESSION_ENGINE = 'mongoengine.django.sessions'
 
 from mongoengine import connect
 connect('example_blog')
