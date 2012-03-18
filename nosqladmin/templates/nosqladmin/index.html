@@ -1,7 +1,7 @@
 {% extends "nosqladmin/base.html" %}
 
 {% block breadcrumbs %}
-<li><a href="" class="active">NoSQL Admin</a></li>
+<li><a href="{% url nosqladmin_index %}" class="active">NoSQL Admin</a></li>
 {% endblock %}
 
 {% block content %}
@@ -20,7 +20,7 @@
             <tbody>        
             {% for nosqladmin in object_list %}
                 <tr>
-                    <td><a href="">{{ nosqladmin.collection_name }}</a></td>
+                    <td><a href="{{ nosqladmin.collection_name|urlencode }}">{{ nosqladmin.collection_name }}</a></td>
                 </tr>
             {% endfor %}
             </tbody>        

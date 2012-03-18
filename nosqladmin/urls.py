@@ -8,14 +8,15 @@ urlpatterns = patterns('',
     url(
         regex=r'^$',
         view=views.IndexView.as_view(),
-        name="index"
+        name="nosqladmin_index"
     ),
-    """
     url(
-        regex=r'^(?P<collection_name>[_\-\w]+)/$',
+        regex=r'^(?P<collection_name>[\._\-\w]+)/$',
         view=views.CollectionListView.as_view(),
-        name="collection_list"
+        name="nosqladmin_collection_list"
     ),
+)
+"""    
     url(
         regex=r'^?P<collection_name>[_\-\w]+)/(?P<id>[\w]{24})/$',
         view=views.CollectionDetailView.as_view(),
@@ -36,5 +37,6 @@ urlpatterns = patterns('',
         view=views.CollectionDeleteView.as_view(),
         name="collection_delete"
     )
-    """    
+
 )
+"""    

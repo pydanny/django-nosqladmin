@@ -41,6 +41,16 @@ class NosqlAdminViewMixin(object):
                 raise exceptions.NosqlAdminClassNotFound(str(nosqladmin))
         return nosqladmins
         
+    def get_db_name(self):
+        if not hasattr(self, "collection_name"):
+            self.set_nosqladmin()
+        return self.collection_name.split('.')[0]
+        
+    def get_collection_name(self):
+        if not hasattr(self, "collection_name"):
+            self.set_nosqladmin()
+        return self.collection_name.split('.')[1]        
+        
     
     def set_nosqladmin(self):
         """ Sets a number of commonly used attributes """        
@@ -58,6 +68,7 @@ class NosqlAdminViewMixin(object):
         # TODO change this to use 'finally' or 'else' or something
         if not hasattr(self, "nosqladmin"):
             raise NoNosqlAdminSpecified("No NosqlAdmin specified for {0}.{1}".format(self.app_label, self.document_name))
+            
                 
     def set_permissions_in_context(self, context={}):
         """ Provides permissions for mongoadmin for use in the context"""

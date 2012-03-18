@@ -1,0 +1,87 @@
+{% extends "nosqladmin/base.html" %}
+
+{% block breadcrumbs %}
+<li><a href="{% url nosqladmin_index %}">nosqladmin</a> <span class="divider">/</span></li>
+<li><a href="">{{ collection_name }}</a></li>
+{% endblock %}
+
+
+{% block content %}
+
+<h1>{{ collection_name }} List</h1>
+
+{% if search_field %}
+    <form action="" method="get" class="form-search">
+        <input type="text" name="q" class="input-medium search-query">
+        <input type="submit" class="btn small info" value="search">
+    </form>
+{% endif %}
+{% if has_add_permission %}
+    <p>
+        <a class="btn btn-primary" href="{% url document_detail_add_form app_label document_name %}">
+            <i class="icon-plus icon-white"></i> Add
+        </a>
+    </p>
+{% endif %}
+{% if request.user.is_superuser %}
+    <form action="" method="post">
+    {% csrf_token %}
+    {# buttons go here #}
+{% endif %}
+    <table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            {% if request.user.is_superuser %}<th><input type="checkbox" name="check_all" /></th>{% endif %}
+            {% for key in keys %}
+                <th>{{ key }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+        
+    {% for obj in object_list %}
+        <tr>
+            {% if request.user.is_superuser %}<td><input type="checkbox" name="obj_id" value="{{ obj.id }}" /></td>{% endif %}
+            {% for key in keys %}
+                {% if key == 'id' %}
+                    <td><a href="{# {% url collection_detail collection_name obj.id %} #}">{{ obj.id }}</a></td>                                
+                {% else %}
+                    <td>{# {% get_document_value obj key %} #}</td>                
+                {% endif %}
+
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>    
+{% if request.user.is_superuser %}
+    {# buttons go here #}
+{% endif %}
+</form>
+
+<div class="pagination">
+  <ul>
+        {# TODO {% if object_list.has_previus %} #}
+        <li class="prev"><a href="?page={{ previous_page_number }}">&larr; Previous</a></li>
+        <li class="active"><a href="#">{{ page }} of {{ total_pages }}</a></li>
+        {# TODO {% if object_list.has_next %} #}    
+        <li class="next"><a href="?page={{ next_page_number }}">Next &rarr;</a></li>
+  </ul>
+</div>
+
+
+{% endblock %}
+
+{% block extrajs %}
+<script type="text/javascript">
+$(function() {
+    $('input[name="check_all"]').click ( function() {
+        if ($(this).is(":checked" )){
+            $('input[name="obj_id"]').prop("checked", true);
+        }       
+        else
+         {
+            $('input[name="obj_id"]').prop("checked", false);
+         }
+    });
+});
+</script>
+{% endblock %}
