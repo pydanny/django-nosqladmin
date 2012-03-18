@@ -10,6 +10,7 @@ urlpatterns = patterns('',
         view=views.IndexView.as_view(),
         name="index"
     ),
+    """
     url(
         regex=r'^(?P<collection_name>[_\-\w]+)/$',
         view=views.CollectionListView.as_view(),
@@ -34,5 +35,6 @@ urlpatterns = patterns('',
         regex=r'^(?P<collection_name>[_\-\w]+)/(?P<id>[\w]{24})/delete/$',
         view=views.CollectionDeleteView.as_view(),
         name="collection_delete"
-    )    
+    )
+    """    
 )
