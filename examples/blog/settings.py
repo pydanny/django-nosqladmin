@@ -193,6 +193,6 @@ except:
 ########## END DJANGO_EXTENSIONS CONFIGURATION
 
 ########## START NOSQLADMIN CONFIGURATION
-NOSQLADMINS = [('mongoadmin','UserAdmin'),]
+NOSQLADMINS = [('mongoadmin','PostAdmin'),]
 
 ########## END NOSQLADMIN CONFIGURATION
