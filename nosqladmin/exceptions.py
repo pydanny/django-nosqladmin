@@ -6,3 +6,6 @@ class NosqlAdminClassNotFound(Exception):
     
 class NoNosqlAdminSpecified(Exception):
     pass
+    
+class DoesNotCompute(Exception):
+    pass
