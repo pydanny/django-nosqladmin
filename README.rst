@@ -27,7 +27,7 @@ Sample mongoadmin.py file::
     
     class ProfileAdmin(MongoAdmin):
         
-        collection_name = 'db.Profile'
+        collection_name = 'example_blog.Profile'
         search_fields = ['username']
         list_fields = ['username']
     
@@ -36,7 +36,7 @@ Sample mongoadmin.py file::
 
     class ArticleAdmin(MongoAdmin):
 
-        collection_name = 'db.Article'
+        collection_name = 'example_blog.Article'
         search_fields = ['title',]
         list_fields = ['title','create_date']
         form_template = {
